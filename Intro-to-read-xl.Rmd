@@ -62,6 +62,29 @@ carp_cover_2000 <- read_excel(here("R-workshop-data","substrate_cover_curated.xl
 ### How can we read in data from an Excel workbook with MULTIPLE worksheets?
 
 
+```{r}
+kelp_golb <- read_excel(here("R-workshop-data","kelp_counts_curated.xlsx"),
+                        sheet = "golb")
+```
+
+### Read in and commbine multiple excel worksheets simultaneosly using purrr: map_df()
+
+```{r}
+
+kelp_path <- here("R -workshop-data","kelp_counts_curated.xlsx")
+
+# Command + Shift + M for new pipe operator
+kelp_all_sides <- kelp_path %>%
+  excel_sheets()%>%
+  set_names()%>%
+  map_df(read_excel, kelp_path)
+
+```
+```{r}
+write_csv(kelp_golb, "kelp_goleta_july.csv")
+# wirte_csv(kelp_golb. here))
+```
+
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
