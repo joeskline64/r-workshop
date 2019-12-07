@@ -1,2 +1,4 @@
 # r-workshop
-practice with r-studio
+Pilot workshop at Bren.
+
+Joe
